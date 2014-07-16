@@ -33,6 +33,7 @@ function toInfo(fullGameList) {
 function addGame(game) {
   game.players = [];
   game.maxPlayers = 10;
+  game.minPlayers = 3;
   game.handSize = 10;
   game.history = [];
   game.isOver = false;
@@ -69,7 +70,7 @@ function joinGame(game, player) {
 
     game.players.push(joiningPlayer);
 
-    if(game.players.length === 4) {
+    if(game.players.length === game.minPlayers) {
         if(!game.isStarted){
             startGame(game);
         } else {
