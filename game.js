@@ -218,7 +218,7 @@ function selectCard(gameId, playerId, whiteCardId) {
     return x.selectedWhiteCardId;
   });
 
-  if(readyPlayers.length === (config.maxPlayers -1)) {
+  if(readyPlayers.length === (game.players.length - 1)) {
     game.isReadyForScoring = true;
   }
 }
