@@ -1,6 +1,11 @@
 var _ = require('underscore');
 var cards = require('./cards.js');
 
+var config = new Object();
+config.maxPlayers = 10;
+config.minPlayers = 3;
+config.handSize = 10;
+
 var gameList = [];
 
 function getDeck() {
@@ -16,7 +21,7 @@ function removeFromArray(array, item) {
 
 function list() {
   return toInfo(_.filter(gameList, function(x) {
-    return x.players.length < game.maxPlayers && !x.isStarted
+    return x.players.length < config.maxPlayers && !x.isStarted
   }));
 }
 
@@ -32,9 +37,6 @@ function toInfo(fullGameList) {
 
 function addGame(game) {
   game.players = [];
-  game.maxPlayers = 10;
-  game.minPlayers = 3;
-  game.handSize = 10;
   game.history = [];
   game.isOver = false;
   game.winnerId = null;
@@ -64,13 +66,13 @@ function joinGame(game, player) {
     isCzar: false
     };
 
-    for(var i = 0; i < game.handSize; i++) {
+    for(var i = 0; i < config.handSize; i++) {
         drawWhiteCard(game, joiningPlayer);
     }
 
     game.players.push(joiningPlayer);
 
-    if(game.players.length === game.minPlayers) {
+    if(game.players.length === config.minPlayers) {
         if(!game.isStarted){
             startGame(game);
         } else {
@@ -126,9 +128,9 @@ function roundEnded(game) {
     player.selectedWhiteCardId = null;
   });
   
-  for(i = 0; i < game.maxPlayers; i++) {
+  for(i = 0; i < config.maxPlayers; i++) {
     if(game.players[i].isCzar === true) {
-      if(i === game.maxPlayers - 1) {
+      if(i === config.maxPlayers - 1) {
         game.players[i].isCzar = false;
         game.players[0].isCzar = true;
         game.players[0].isReady = false;
@@ -216,7 +218,7 @@ function selectCard(gameId, playerId, whiteCardId) {
     return x.selectedWhiteCardId;
   });
 
-  if(readyPlayers.length === (game.maxPlayers -1)) {
+  if(readyPlayers.length === (config.maxPlayers -1)) {
     game.isReadyForScoring = true;
   }
 }
