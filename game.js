@@ -255,3 +255,4 @@ exports.selectCard = selectCard;
 exports.selectWinner = selectWinner;
 exports.removeFromArray = removeFromArray;
 exports.getDeck = getDeck;
+exports.config = config;
