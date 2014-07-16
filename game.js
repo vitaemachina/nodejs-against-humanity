@@ -32,6 +32,7 @@ function toInfo(fullGameList) {
 
 function addGame(game) {
   game.players = [];
+  game.maxPlayers = 10;
   game.history = [];
   game.isOver = false;
   game.winnerId = null;
@@ -41,7 +42,7 @@ function addGame(game) {
   game.currentBlackCard = "";
   game.isReadyForScoring = false;
   game.isReadyForReview = false;
-  game.pointsToWin = 5;
+  game.pointsToWin = 10;
   gameList.push(game);
   return game;
 }
