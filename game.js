@@ -37,8 +37,9 @@ function listAll() {
 }
 
 function toInfo(fullGameList) {
+  var config = Config.getConfig();
   return _.map(fullGameList, function(game) {
-    return { id: game.id, name: game.name, players: game.players.length };
+    return { id: game.id, name: game.name, players: game.players.length, maxPlayers: config.maxPlayers };
   });
 }
 
