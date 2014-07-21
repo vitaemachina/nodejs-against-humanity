@@ -21,6 +21,11 @@ function black() {
     collection.find().toArray(function(err, cards) {
         console.log(cards);
         console.log(cards.length);
+        
+        var test = _.pluck(recs, 'text');
+        
+        console.log(test);
+        
         console.log("Hope we got cards!");
         // Let's close the db
         db.close();
