@@ -90,7 +90,9 @@ app.post('/joingame', function (req, res) {
     return null;
   }
 
-  if(game.isStarted || game.players.length >= Game.config.maxPlayers) {
+  var config = Game.getConfig();
+
+  if(game.isStarted || game.players.length >= config.maxPlayers) {
     res.writeHead(500, { 'Content-Type': 'application/json' });
     res.write(JSON.stringify({ error: "too many players" }));
     res.end();
