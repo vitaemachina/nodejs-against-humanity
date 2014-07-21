@@ -1,11 +1,6 @@
 var _ = require('underscore');
 var cards = require('./cards.js');
 
-var config = new Object();
-config.maxPlayers = 10;
-config.minPlayers = 3;
-config.handSize = 10;
-
 var gameList = [];
 
 function getDeck() {
