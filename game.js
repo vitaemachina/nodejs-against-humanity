@@ -1,6 +1,15 @@
 var _ = require('underscore');
 var cards = require('./cards.js');
-var Config = require('./config.js');
+
+function getConfig() {
+  var config = new Object();
+  
+  config.maxPlayers = 10;
+  config.minPlayers = 3;
+  config.handSize = 10;
+  
+  return config;
+}
 
 var gameList = [];
 
@@ -54,7 +63,7 @@ function getGame(gameId) {
 }
 
 function joinGame(game, player) {
-    var config = Config.getConfig();
+    var config = getConfig();
     var joiningPlayer = {
     id: player.id,
     name: player.name,
@@ -110,7 +119,7 @@ function startGame(game) {
 }
 
 function roundEnded(game) {
-  var config = Config.getConfig();
+  var config = getConfig();
   game.winnerId = null;
   game.winningCardId = null;
   game.isReadyForScoring = false;
@@ -255,3 +264,4 @@ exports.selectCard = selectCard;
 exports.selectWinner = selectWinner;
 exports.removeFromArray = removeFromArray;
 exports.getDeck = getDeck;
+exports.getConfig = getConfig;
