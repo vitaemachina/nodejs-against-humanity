@@ -17,15 +17,22 @@ function black() {
     }
     
     var collection = db.collection('black');  
-        
-    collection.find().toArray(function(err, cards) {
-        console.log(cards);
-        console.log(cards.length);
-        console.log("Hope we got cards!");
-        // Let's close the db
-        db.close();
-        return cards;
-    });    
+
+    collection.find().each(function(err, card) {
+      console.log(card.text);
+      card.push(card.text);
+      
+    });
+    console.log("hope we got cards!");  
+    db.close();    
+    // collection.find().toArray(function(err, cards) {
+    //     console.log(cards);
+    //     console.log(cards.length);
+    //     console.log("Hope we got cards!");
+    //     // Let's close the db
+    //     db.close();
+    //     return cards;
+    // });    
     
   });
 
