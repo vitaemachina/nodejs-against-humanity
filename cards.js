@@ -7,6 +7,7 @@ function black() {
   var cards = [];
 
   var MongoClient = require('mongodb').MongoClient;
+  var _ = require('underscore');
         // , format = require('util').format;
 
   MongoClient.connect("mongodb://localhost:27017/black", function(err, db) {
