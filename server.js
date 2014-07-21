@@ -37,6 +37,8 @@ var lobbySocket = io
     .of('/lobby')
     .on('connection', function(socket) {
         console.info('lobby socket connect');
+        var config = Config.getConfig();
+        console.info('Config.maxPlayers: ' + config.maxPlayers);
         var gameList = Game.list();
         socket.emit('lobbyJoin', gameList);
     })
