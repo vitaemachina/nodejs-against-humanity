@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var Config = require('./config.js');
 var Game = require('./game.js');
 var routes = require('./routes/routes.js');
 var players = { };
@@ -37,8 +36,6 @@ var lobbySocket = io
     .of('/lobby')
     .on('connection', function(socket) {
         console.info('lobby socket connect');
-        var config = Config.getConfig();
-        console.info('Config.maxPlayers: ' + config.maxPlayers);
         var gameList = Game.list();
         socket.emit('lobbyJoin', gameList);
     })
