@@ -16,26 +16,26 @@ function black() {
       console.log("We failed to connect");
     }
     
+
     var collection = db.collection('black');  
 
-    collection.find().each(function(err, card) {
-      console.log(card);
-      //card.push(card.text);
-      
-    });
-    console.log("hope we got cards!");  
+    collection.find().toArray(function(err, recs) {
+        console.log("Cards Retrieved: " + recs.length);
+        
+        var cards = _.pluck(recs, 'name'); 
+        
+        console.log(cards);
+        
+        // Let's close the db
+        db.close();
+        return cards;
+    });    
+
+
     db.close();    
-    // collection.find().toArray(function(err, cards) {
-    //     console.log(cards);
-    //     console.log(cards.length);
-    //     console.log("Hope we got cards!");
-    //     // Let's close the db
-    //     db.close();
-    //     return cards;
-    // });    
     
   });
-
+  console.log("hope we got cards!");  
   return cards;
 
     
