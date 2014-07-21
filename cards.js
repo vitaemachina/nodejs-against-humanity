@@ -23,18 +23,16 @@ function black() {
         //console.log(cards);
         console.log(results.length);
         
-        var cards = _.pluck(results, 'text');
-        
-        console.log(cards);
+        cards = _.pluck(results, 'text');
         
         console.log("Hope we got cards!");
         // Let's close the db
         db.close();
-        return cards;
     });
     
   });
-
+  
+  console.log(cards);
   return cards;
     
 
