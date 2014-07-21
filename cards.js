@@ -18,11 +18,13 @@ function black() {
     
     var collection = db.collection('black');  
         
-    collection.find().toArray(function(err, results) {
-        console.log(results);
+    collection.find().toArray(function(err, cards) {
+        console.log(cards);
+        console.log(cards.length);
+        console.log("Hope we got cards!");
         // Let's close the db
         db.close();
-        return results;
+        return cards;
     });    
     
   });
