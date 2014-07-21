@@ -15,6 +15,7 @@ function black() {
     var collection = db.collection('black');  
       
     collection.find().toArray(function(err, results) {
+        console.info(results);
         // Let's close the db
         db.close();
         return results;
