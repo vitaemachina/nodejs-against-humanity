@@ -19,13 +19,13 @@ function black() {
     
     var collection = db.collection('black');
         
-    collection.find().toArray(function(err, cards) {
+    collection.find().toArray(function(err, results) {
         //console.log(cards);
-        console.log(cards.length);
+        console.log(results.length);
         
-        var test = _.pluck(cards, 'text');
+        var cards = _.pluck(results, 'text');
         
-        console.log(test);
+        console.log(cards);
         
         console.log("Hope we got cards!");
         // Let's close the db
