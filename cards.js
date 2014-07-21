@@ -9,19 +9,28 @@ function black() {
   var MongoClient = require('mongodb').MongoClient;
         // , format = require('util').format;
 
-  MongoClient.connect('mongodb://127.0.0.1:27017/black', function(err, db) {
-      if(err) throw err;
-      
+  MongoClient.connect("mongodb://localhost:27017/black", function(err, db) {
+    if(!err) {
+      console.log("We are connected");
+    } else {
+      console.log("We failed to connect");
+    }
+    
     var collection = db.collection('black');  
-      
+        
     collection.find().toArray(function(err, results) {
-        console.info(results);
+        console.log(results);
         // Let's close the db
         db.close();
         return results;
-    });
+    });    
     
-  });  
+  });
+
+  return cards;
+
+    
+
     
     
   // return [
