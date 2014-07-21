@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var cards = require('./cards.js');
+var Config = require('./config.js');
 
 var gameList = [];
 
@@ -15,6 +16,8 @@ function removeFromArray(array, item) {
 }
 
 function list() {
+  
+  var config = Config.getConfig();
   return toInfo(_.filter(gameList, function(x) {
     return x.players.length < config.maxPlayers // && !x.isStarted
   }));
@@ -51,6 +54,7 @@ function getGame(gameId) {
 }
 
 function joinGame(game, player) {
+    var config = Config.getConfig();
     var joiningPlayer = {
     id: player.id,
     name: player.name,
@@ -106,6 +110,7 @@ function startGame(game) {
 }
 
 function roundEnded(game) {
+  var config = Config.getConfig();
   game.winnerId = null;
   game.winningCardId = null;
   game.isReadyForScoring = false;
