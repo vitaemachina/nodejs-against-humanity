@@ -18,6 +18,8 @@ function black() {
         return results;
     });
     
+  });  
+    
     
   // return [
   //   "A romantic candlelit dinner would be incomplete without __________.",
