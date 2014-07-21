@@ -6,8 +6,8 @@ function black() {
   
   var cards = [];
 
-  var MongoClient = require('mongodb').MongoClient
-        , format = require('util').format;
+  var MongoClient = require('mongodb').MongoClient;
+        // , format = require('util').format;
 
   MongoClient.connect('mongodb://127.0.0.1:27017/black', function(err, db) {
       if(err) throw err;
