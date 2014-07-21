@@ -26,7 +26,7 @@ function removeFromArray(array, item) {
 
 function list() {
   
-  var config = Config.getConfig();
+  var config = getConfig();
   return toInfo(_.filter(gameList, function(x) {
     return x.players.length < config.maxPlayers // && !x.isStarted
   }));
@@ -37,7 +37,7 @@ function listAll() {
 }
 
 function toInfo(fullGameList) {
-  var config = Config.getConfig();
+  var config = getConfig();
   return _.map(fullGameList, function(game) {
     return { id: game.id, name: game.name, players: game.players.length, maxPlayers: config.maxPlayers };
   });
