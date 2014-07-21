@@ -12,7 +12,9 @@ function black() {
   MongoClient.connect('mongodb://127.0.0.1:27017/black', function(err, db) {
       if(err) throw err;
       
-    db.black.find().toArray(function(err, results) {
+    collection = db.collection('black');  
+      
+    collection.find().toArray(function(err, results) {
         // Let's close the db
         db.close();
         return results;
