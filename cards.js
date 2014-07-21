@@ -23,7 +23,7 @@ function black() {
         //console.log(cards);
         console.log(cards.length);
         
-        var test = _.pluck(recs, 'text');
+        var test = _.pluck(cards, 'text');
         
         console.log(test);
         
