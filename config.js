@@ -8,3 +8,5 @@ function getConfig() {
   
   return config;
 }
+
+exports.getConfig = getConfig;
