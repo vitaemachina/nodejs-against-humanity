@@ -26,15 +26,14 @@ function black() {
         cards = _.pluck(results, 'text');
         
         console.log("Hope we got cards!");
+        return cards;
         // Let's close the db
         db.close();
     });
     
   });
   
-  console.log(cards);
-  return cards;
-    
+
 
     
     
