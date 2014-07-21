@@ -19,8 +19,8 @@ function black() {
     var collection = db.collection('black');  
 
     collection.find().each(function(err, card) {
-      console.log(card.text);
-      card.push(card.text);
+      console.log(card);
+      //card.push(card.text);
       
     });
     console.log("hope we got cards!");  
